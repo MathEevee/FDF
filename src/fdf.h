@@ -14,7 +14,13 @@
 # define FDF_H
 # include "../Libft/libft.h"
 # include "../minilibx-linux/mlx.h"
+# include <fcntl.h>
 
-int	main(void);
+typedef struct s_coord
+{
+	int			y;
+	char			*color;
+}					t_coord;
+
 
 #endif
