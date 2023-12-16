@@ -6,7 +6,7 @@
 #    By: matde-ol <matde-ol@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/28 11:10:49 by matde-ol          #+#    #+#              #
-#    Updated: 2023/12/12 10:53:47 by matde-ol         ###   ########.fr        #
+#    Updated: 2023/12/16 11:10:22 by matde-ol         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ IFLAGS = -ILibft/ -Iminilibx-linux/
 LFLAGS = $(MINILIB-LINUX) $(DIR_LIB) -lft
 
 SRC = \
+		FDF.c \
 	
 
 
@@ -40,11 +41,11 @@ $(MINILIBX-LINUX) :
 	make -C minilibx-linux
 
 $(NAME) : $(MINILIBX-LINUX) $(LIBFT) $(OBJ)
-	$(CC) $(CFLAGS) $(IFLAGS) $(OBJ) $(LFLAGS) -o $@
+	$(CC) $(CFLAGS) $(IFLAGS) $(OBJ) $(LFLAGS) -Lmlx_linux -lmlx_Linux -Lminilibx-linux/ -lmlx -lXext -lX11
 
 $(DIR_OBJ)%.o : $(DIR_SRC)%.c
 	@mkdir -p $(DIR_OBJ)
-	$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) $(IFLAGS) -Imlx_linux -O3 -c $< -o $@
 
 clean:
 	make -C Libft clean

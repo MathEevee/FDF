@@ -14,7 +14,9 @@
 # define LIBFT_H
 # include <stdlib.h>
 # include <unistd.h>
-
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
 typedef struct s_list
 {
 	void			*content;
@@ -65,5 +67,11 @@ void		ft_lstdelone(t_list *lst, void (*del)(void*));
 void		ft_lstclear(t_list **lst, void (*del)(void*));
 void		ft_lstiter(t_list *lst, void (*f)(void *));
 void		*ft_free(char **dest, int i);
+int			ft_security(char *reste, char *dest);
+char		*ft_strjoin_f(char *s1, char *s2);
+char		*ft_loop_buffer(int fd);
+char		*get_next_line(int fd);
+int			ft_strchr_bis(char *src);
+char		*ft_strlcpy_f(char *src, int len);
 
 #endif
