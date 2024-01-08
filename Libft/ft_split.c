@@ -79,7 +79,7 @@ char	**ft_split(char const *s, char c)
 		{
 			dest[j] = ft_in_to_malloc(s + srci, c);
 			if (dest[j] == NULL)
-				return (ft_free(dest, j));
+				return (ft_free_all_tab(dest, j));
 			srci = srci + ft_count_letter(dest[j], c);
 		}
 		j++;

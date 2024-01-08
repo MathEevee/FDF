@@ -36,10 +36,22 @@ SRC = \
 	ft_strmapi.c \
 	ft_striteri.c \
 	ft_strtrim.c \
-	ft_free_all.c \
-	get_next_line.c \
-	get_next_line_utils.c
-	
+	ft_free_all_tab.c \
+	ft_hexa_pointer.c \
+	ft_printf.c \
+	ft_putchar.c \
+	ft_putnbr.c \
+	ft_hexa_pointer.c \
+	ft_putchar.c \
+	ft_putnbr.c \
+	ft_putnbr_hexa.c \
+	ft_putstr.c \
+	ft_put_u_nbr.c \
+	ft_atol.c \
+	get_next_line_bonus.c \
+	get_next_line_utils_bonus.c \
+	ft_toupper_hexa.c \
+	ft_ishexa.c
 SRC_BONUS = \
 	ft_lstnew_bonus.c \
 	ft_lstsize_bonus.c \
@@ -49,7 +61,8 @@ SRC_BONUS = \
 	ft_lstdelone_bonus.c \
 	ft_lstclear_bonus.c \
 	ft_lstiter_bonus.c \
-	ft_lstmap_bonus.c
+	ft_lstmap_bonus.c \
+	ft_atoi_hexa.c
 
 OBJ = $(SRC:.c=.o)
 OBJ_BONUS = $(SRC_BONUS:.c=.o)
@@ -72,3 +85,5 @@ fclean : clean
 	rm -f $(NAME)
 	
 re : fclean all
+
+.PHONY: all clean fclean re

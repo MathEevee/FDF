@@ -6,7 +6,7 @@
 /*   By: matde-ol <matde-ol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 09:44:48 by matde-ol          #+#    #+#             */
-/*   Updated: 2023/11/07 09:26:48 by matde-ol         ###   ########.fr       */
+/*   Updated: 2023/12/31 14:01:49 by matde-ol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 # define LIBFT_H
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdarg.h>
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
+#  define BUFFER_SIZE 1
 # endif
+
 typedef struct s_list
 {
 	void			*content;
@@ -66,12 +68,20 @@ void		ft_lstadd_back(t_list **lst, t_list *new);
 void		ft_lstdelone(t_list *lst, void (*del)(void*));
 void		ft_lstclear(t_list **lst, void (*del)(void*));
 void		ft_lstiter(t_list *lst, void (*f)(void *));
-void		*ft_free(char **dest, int i);
-int			ft_security(char *reste, char *dest);
-char		*ft_strjoin_f(char *s1, char *s2);
-char		*ft_loop_buffer(int fd);
+void		*ft_free_all_tab(char **dest, int i);
+int			ft_putchar(unsigned char c);
+int			ft_putstr(char *c);
+int			ft_putnbr(int nbr);
+int			ft_putnbr_hexa(size_t nbr, char *base);
+int			ft_put_u_nbr(unsigned int nbr);
+int			ft_hexa_pointer(void *pt, char *base);
+int			ft_printf(const char *format, ...);
 char		*get_next_line(int fd);
+char		*ft_strjoin_f(char *s1, char *s2);
 int			ft_strchr_bis(char *src);
 char		*ft_strlcpy_f(char *src, int len);
+int			ft_toupper_hexa(int c);
+int			ft_ishexa(char c);
+int			ft_atoi_hexa(char *src);
 
 #endif

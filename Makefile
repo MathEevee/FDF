@@ -6,54 +6,55 @@
 #    By: matde-ol <matde-ol@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/28 11:10:49 by matde-ol          #+#    #+#              #
-#    Updated: 2023/12/16 11:10:22 by matde-ol         ###   ########.fr        #
+#    Updated: 2024/01/05 15:20:11 by matde-ol         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fdf
 CC = gcc
 
-DIR_LIB	= -LLibft/ -Lminilibx-linux/
+DIR_LIB = Libft/
+DIR_INC = Libft/
 DIR_SRC = src/
 DIR_OBJ = obj/
 
-LIBFT = Libft/libft.a
-MINILIBX-LINUX = minilibx-linux/minilibx-linux.a
-
-
-CFLAGS = -Werror -Wextra -Wall
-IFLAGS = -ILibft/ -Iminilibx-linux/
-LFLAGS = $(MINILIB-LINUX) $(DIR_LIB) -lft
+CFLAGS = -Werror -Wextra -Wall -g3
+IFLAGS = -I$(DIR_INC)
+LFLAGS = -L$(DIR_LIB) -lft
 
 SRC = \
-		FDF.c \
-	
-
+		fdf.c \
+		check_data.c \
+		init_tab.c \
+		calc_utils.c \
+		init_color.c \
+		other_ft_del.c \
+		clear_error.c \
+		manage_window.c \
+		calc_coord.c
+		
+LIBFT = $(DIR_LIB)/libft.a
 
 OBJ = $(addprefix $(DIR_OBJ),$(SRC:.c=.o))
 
 all : $(NAME)
 
 $(LIBFT) :
-	make -C Libft bonus
-	
-$(MINILIBX-LINUX) :
-	make -C minilibx-linux
+	make bonus -C $(DIR_LIB)
 
-$(NAME) : $(MINILIBX-LINUX) $(LIBFT) $(OBJ)
-	$(CC) $(CFLAGS) $(IFLAGS) $(OBJ) $(LFLAGS) -Lmlx_linux -lmlx_Linux -Lminilibx-linux/ -lmlx -lXext -lX11
+$(NAME) : $(LIBFT) $(OBJ)
+	$(CC) $(CFLAGS) $(IFLAGS) $(OBJ) MacroLibX-master/libmlx.so -lSDL2 $(LFLAGS) -o $@
 
 $(DIR_OBJ)%.o : $(DIR_SRC)%.c
 	@mkdir -p $(DIR_OBJ)
-	$(CC) $(CFLAGS) $(IFLAGS) -Imlx_linux -O3 -c $< -o $@
+	$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
 
 clean:
-	make -C Libft clean
-	make -C minilibx-linux clean
+	make -C $(DIR_LIB) clean
 	rm -rf $(DIR_OBJ)
 
 fclean: clean
-	make -C Libft fclean
+	make -C $(DIR_LIB) fclean
 	rm -f $(NAME)
 
 re: fclean all
