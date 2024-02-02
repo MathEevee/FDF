@@ -6,11 +6,17 @@
 /*   By: matde-ol <matde-ol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 11:09:10 by matde-ol          #+#    #+#             */
-/*   Updated: 2024/01/06 21:43:51 by matde-ol         ###   ########.fr       */
+/*   Updated: 2024/01/21 18:33:08 by matde-ol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
+void	clear_end(t_coord **xyz, t_calc *data)
+{
+	clear_xyz(xyz, 1);
+	free(data);
+}
 
 void	lst_clear_all(t_list *lst)
 {
@@ -27,14 +33,21 @@ void	lst_clear_all(t_list *lst)
 	}
 }
 
-void	free_two_tab(int y, t_coord **xyz, char **dest)
+void	free_two_tab(t_coord **xyz, char **dest)
 {
-	while (y > 0)
+	int	x;
+	int	y;
+
+	y = 0;
+	while (xyz[y] != NULL)
 	{
+		x = 0;
+		while (xyz[y][x].all)
+			free(xyz[y][x++].all);
 		free(xyz[y]);
-		y--;
+		y++;
 	}
-	ft_free_all_tab(dest, count_tab(dest[y], y));
+	ft_free_all_tab(dest);
 	free(xyz);
 }
 
@@ -49,21 +62,22 @@ void	clear_all_init(t_list *save, t_coord **xyz, int y)
 	lst_clear_all(save);
 }
 
-void	clear_xyz(t_coord **xyz)
+void	clear_xyz(t_coord **xyz, int del_color)
 {
 	int	y;
 	int	x;
 	int	i;
 
 	y = count_y(xyz);
-	x = count_x(xyz);
 	while (y >= 0)
 	{
+		x = count_x(xyz, y);
 		i = x;
 		while (i >= 0)
 		{
 			free(xyz[y][i].all);
-			free(xyz[y][i].color);
+			if (del_color)
+				free(xyz[y][i].color);
 			i--;
 		}
 		free(xyz[y]);

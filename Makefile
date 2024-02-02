@@ -18,20 +18,23 @@ DIR_INC = Libft/
 DIR_SRC = src/
 DIR_OBJ = obj/
 
-CFLAGS = -Werror -Wextra -Wall -g3
+CFLAGS = -Werror -Wextra -Wall
 IFLAGS = -I$(DIR_INC)
-LFLAGS = -L$(DIR_LIB) -lft
+LFLAGS = -L$(DIR_LIB) -lft -lm
 
 SRC = \
-		fdf.c \
-		check_data.c \
-		init_tab.c \
+		calc_coord.c \
 		calc_utils.c \
-		init_color.c \
-		other_ft_del.c \
+		check_data.c \
 		clear_error.c \
+		fdf.c \
+		init_color.c \
+		init_tab.c \
 		manage_window.c \
-		calc_coord.c
+		put_line_x.c \
+		put_line_y.c \
+		put_line.c \
+		color.c
 		
 LIBFT = $(DIR_LIB)/libft.a
 

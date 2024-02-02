@@ -6,7 +6,7 @@
 /*   By: matde-ol <matde-ol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 09:44:48 by matde-ol          #+#    #+#             */
-/*   Updated: 2023/12/31 14:01:49 by matde-ol         ###   ########.fr       */
+/*   Updated: 2024/01/19 14:58:20 by matde-ol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void		ft_lstadd_back(t_list **lst, t_list *new);
 void		ft_lstdelone(t_list *lst, void (*del)(void*));
 void		ft_lstclear(t_list **lst, void (*del)(void*));
 void		ft_lstiter(t_list *lst, void (*f)(void *));
-void		*ft_free_all_tab(char **dest, int i);
+void		*ft_free_all_tab(char **dest);
 int			ft_putchar(unsigned char c);
 int			ft_putstr(char *c);
 int			ft_putnbr(int nbr);

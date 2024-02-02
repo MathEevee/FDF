@@ -6,37 +6,36 @@
 /*   By: matde-ol <matde-ol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 09:44:52 by matde-ol          #+#    #+#             */
-/*   Updated: 2024/01/06 21:34:33 by matde-ol         ###   ########.fr       */
+/*   Updated: 2024/01/21 18:31:46 by matde-ol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int	count_x(t_coord **xyz)
+int	ft_roundf(float nb)
+{
+	nb += 0.5;
+	return (nb);
+}
+
+int	count_x(t_coord **xyz, int y)
 {
 	int	x;
 
 	x = 0;
-	while (xyz[0][x + 1].all != NULL)
+	while (xyz[y][x].all != NULL)
 		x++;
-	return (x);
+	return (x - 1);
 }
 
 int	count_y(t_coord **xyz)
 {
-	int	x;
 	int	y;
 
-	x = 0;
 	y = 0;
-	while (xyz[y + 1] != NULL)
-	{
-		x = 0;
-		while (xyz[y + 1][x + 1].all != NULL)
-			x++;
+	while (xyz[y] != NULL)
 		y++;
-	}
-	return (y);
+	return (y - 1);
 }
 
 int	count_tab(char const *s, char c)

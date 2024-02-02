@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_all.c                                      :+:      :+:    :+:   */
+/*   ft_free_all_tab.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: matde-ol <matde-ol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:12:19 by matde-ol          #+#    #+#             */
-/*   Updated: 2023/11/29 17:12:10 by matde-ol         ###   ########.fr       */
+/*   Updated: 2024/02/02 15:28:42 by matde-ol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_free_all_tab(char **dest, int i)
+void	*ft_free_all_tab(char **dest)
 {
+	int	i;
+
+	i = 0;
 	if (dest != NULL)
 	{
-		while (i > 0)
+		while (dest[i] != NULL)
 		{
-			i--;
 			free(dest[i]);
+			i++;
 		}
 		free(dest);
 	}

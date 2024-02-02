@@ -6,11 +6,35 @@
 /*   By: matde-ol <matde-ol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 10:00:50 by matde-ol          #+#    #+#             */
-/*   Updated: 2024/01/08 10:16:30 by matde-ol         ###   ########.fr       */
+/*   Updated: 2024/01/21 18:29:50 by matde-ol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
+void	check_elem_line(t_coord **xyz)
+{
+	int	x;
+	int	y;
+	int	tmp;
+
+	y = 0;
+	while (xyz[y] != NULL)
+	{
+		x = 0;
+		while (xyz[y][x].all != NULL)
+			x++;
+		if (y == 0)
+			tmp = x;
+		if (tmp != x)
+		{
+			clear_xyz(xyz, 0);
+			msg_error();
+			exit(0);
+		}
+		y++;
+	}
+}
 
 static int	check_lst_content(char *src)
 {
