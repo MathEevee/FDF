@@ -66,16 +66,16 @@ void	line_y(t_coord **xyz, t_vars *vars, t_calc *data);
 void	line_x(int y, int x, t_calc *data, t_vars *vars);
 void	line_x_all(t_coord **xyz, t_calc *data, t_vars *vars);
 /*put_line_x*/
-void	c_n_x_n(t_calc *data, t_vars *vars, float i, float c);
-void	c_n_x_p(t_calc *data, t_vars *vars, float i, float c);
-void	c_p_x_n(t_calc *data, t_vars *vars, float i, float c);
-void	c_p_x_p(t_calc *data, t_vars *vars, float i, float c);
+void	coef_n_diff_x_n(t_calc *data, t_vars *vars, float i, float c);
+void	coef_n_diff_x_p(t_calc *data, t_vars *vars, float i, float c);
+void	coef_p_diff_x_n(t_calc *data, t_vars *vars, float i, float c);
+void	coef_p_diff_x_p(t_calc *data, t_vars *vars, float i, float c);
 void	const_x(t_calc *data, t_vars *vars, float i);
 /*put_line_y*/
-void	c_n_y_n(t_calc *data, t_vars *vars, float i, float c);
-void	c_n_y_p(t_calc *data, t_vars *vars, float i, float c);
-void	c_p_y_n(t_calc *data, t_vars *vars, float i, float c);
-void	c_p_y_p(t_calc *data, t_vars *vars, float i, float c);
+void	coef_n_diff_y_n(t_calc *data, t_vars *vars, float i, float c);
+void	coef_n_diff_y_p(t_calc *data, t_vars *vars, float i, float c);
+void	coef_p_diff_y_n(t_calc *data, t_vars *vars, float i, float c);
+void	coef_p_diff_y_p(t_calc *data, t_vars *vars, float i, float c);
 void	const_y(t_calc *data, t_vars *vars, float i);
 /*init_color*/
 void	init_color(t_coord **xyz, int y);

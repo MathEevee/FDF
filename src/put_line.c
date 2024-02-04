@@ -6,7 +6,7 @@
 /*   By: matde-ol <matde-ol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 09:48:25 by matde-ol          #+#    #+#             */
-/*   Updated: 2024/02/02 15:30:29 by matde-ol         ###   ########.fr       */
+/*   Updated: 2024/02/04 11:14:41 by matde-ol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,13 @@ static void	put_back_line(int y, int x, t_calc *data, t_vars *vars)
 	if (((data->y2) - i) == 0)
 		const_x(data, vars, i);
 	else if (c < 0 && ((data->y2) - i) < 0)
-		c_n_y_n(data, vars, i, c);
+		coef_n_diff_y_n(data, vars, i, c);
 	else if (c < 0 && ((data->y2) - i) > 0)
-		c_n_y_p(data, vars, i, c);
+		coef_n_diff_y_p(data, vars, i, c);
 	else if (c > 0 && ((data->y2) - i) < 0)
-		c_p_y_n(data, vars, i, c);
+		coef_p_diff_y_n(data, vars, i, c);
 	else if (c > 0 && ((data->y2) - i) > 0)
-		c_p_y_p(data, vars, i, c);
+		coef_p_diff_y_p(data, vars, i, c);
 	else
 		const_y(data, vars, i);
 }
@@ -86,13 +86,13 @@ void	line_x(int y, int x, t_calc *data, t_vars *vars)
 	i = data->y1;
 	c = ((data->y2) - (data->y1)) / (data->x2 - data->x1);
 	if (c < 0 && (data->x2 - data->x1) < 0)
-		c_n_x_n(data, vars, i, c);
+		coef_n_diff_x_n(data, vars, i, c);
 	else if (c < 0 && (data->x2 - data->x1) > 0)
-		c_n_x_p(data, vars, i, c);
+		coef_n_diff_x_p(data, vars, i, c);
 	else if (c > 0 && (data->x2 - data->x1) < 0)
-		c_p_x_n(data, vars, i, c);
+		coef_p_diff_x_n(data, vars, i, c);
 	else if (c > 0 && (data->x2 - data->x1) > 0)
-		c_p_x_p(data, vars, i, c);
+		coef_p_diff_x_p(data, vars, i, c);
 	else
 		const_x(data, vars, i);
 }

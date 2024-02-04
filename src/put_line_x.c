@@ -6,13 +6,13 @@
 /*   By: matde-ol <matde-ol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 09:05:19 by matde-ol          #+#    #+#             */
-/*   Updated: 2024/01/19 11:59:13 by matde-ol         ###   ########.fr       */
+/*   Updated: 2024/02/04 11:13:57 by matde-ol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	c_n_x_n(t_calc *data, t_vars *vars, float i, float c)
+void	coef_n_diff_x_n(t_calc *data, t_vars *vars, float i, float c)
 {
 	float	r;
 	float	new_coef;
@@ -38,7 +38,7 @@ void	c_n_x_n(t_calc *data, t_vars *vars, float i, float c)
 	}
 }
 
-void	c_n_x_p(t_calc *data, t_vars *vars, float i, float c)
+void	coef_n_diff_x_p(t_calc *data, t_vars *vars, float i, float c)
 {
 	float	r;
 	float	new_coef;
@@ -64,7 +64,7 @@ void	c_n_x_p(t_calc *data, t_vars *vars, float i, float c)
 	}
 }
 
-void	c_p_x_n(t_calc *data, t_vars *vars, float i, float c)
+void	coef_p_diff_x_n(t_calc *data, t_vars *vars, float i, float c)
 {
 	float	r;
 	float	new_coef;
@@ -90,7 +90,7 @@ void	c_p_x_n(t_calc *data, t_vars *vars, float i, float c)
 	}
 }
 
-void	c_p_x_p(t_calc *data, t_vars *vars, float i, float c)
+void	coef_p_diff_x_p(t_calc *data, t_vars *vars, float i, float c)
 {
 	float	r;
 	float	new_coef;
