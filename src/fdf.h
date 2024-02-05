@@ -6,7 +6,7 @@
 /*   By: matde-ol <matde-ol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 09:26:25 by matde-ol          #+#    #+#             */
-/*   Updated: 2024/02/05 16:37:59 by matde-ol         ###   ########.fr       */
+/*   Updated: 2024/02/05 17:13:49 by matde-ol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	check_elem_line(t_coord **xyz);
 /*init_tab*/
 t_coord	**init_tab(t_list *lst);
 /*manage_window*/
-int	init_window(t_coord **xyz);
+int		init_window(t_coord **xyz);
 /*put_line*/
 void	line_y(t_coord **xyz, t_vars *vars, t_calc *data);
 void	line_x(int y, int x, t_calc *data, t_vars *vars);
