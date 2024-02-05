@@ -6,7 +6,7 @@
 /*   By: matde-ol <matde-ol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 10:25:46 by matde-ol          #+#    #+#             */
-/*   Updated: 2024/01/21 17:04:35 by matde-ol         ###   ########.fr       */
+/*   Updated: 2024/02/05 16:38:41 by matde-ol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ static t_list	*init_lst(char **av)
 	fd = open(av[1], O_RDONLY);
 	str = get_next_line(fd);
 	if (str == NULL)
-		return (NULL);
+		error_fd(fd);
 	if (str[ft_strlen(str) - 1] == '\n')
 		str[ft_strlen(str) - 1] = 0;
 	lst = ft_lstnew(str);
@@ -111,6 +111,7 @@ int	main(int ac, char **av)
 		msg_error();
 		return (0);
 	}
-	init_window(xyz);
+	if (init_window(xyz) == -1)
+		clear_xyz(xyz, 0);
 	return (0);
 }

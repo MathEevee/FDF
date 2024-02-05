@@ -34,7 +34,8 @@ SRC = \
 		put_line_x.c \
 		put_line_y.c \
 		put_line.c \
-		color.c
+		color.c \
+		error_fd.c
 		
 LIBFT = $(DIR_LIB)/libft.a
 
